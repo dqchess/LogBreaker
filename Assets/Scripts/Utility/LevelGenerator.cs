@@ -36,9 +36,9 @@ public class LevelGenerator : MonoBehaviour {
         }            
     }
 
-    public void GenerateLevelSO(int index)
+    public void GenerateLevelSO(int _index)
     {
-        m_LevelLayoutSO = Resources.Load<LevelLayout>("Static/" + index.ToString());
+        m_LevelLayoutSO = Resources.Load<LevelLayout>("Static/" + _index.ToString());
         List<LevelElement> levelElementsList = m_LevelLayoutSO.levelLayout;
         GameObject[] gos = new GameObject[levelElementsList.Count];
 
@@ -57,18 +57,17 @@ public class LevelGenerator : MonoBehaviour {
 
         }
         StaticBatchingUtility.Combine(gos, gameObject);
-        GenerateMovingBricks(index);
+        GenerateMovingBricks(_index);
 
     }
 
 
-    void GenerateMovingBricks(int index)
+    void GenerateMovingBricks(int _index)
     {
-        m_movingBricksSO =  Resources.Load<LevelMovers>("Dynamic/" + index);
+        m_movingBricksSO =  Resources.Load<LevelMovers>("Dynamic/" + _index);
 
         if(m_movingBricksSO == null)
         {
-
             return;
         }
 

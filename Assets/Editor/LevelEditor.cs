@@ -11,9 +11,8 @@ public class LevelEditor : Editor {
 
     static List<Vector3> spawnPositions = new List<Vector3>();
 
-    public int num = 2;
-
     static Grid m_grid;
+
     static Grid grid
     {
         get
@@ -27,12 +26,12 @@ public class LevelEditor : Editor {
                     m_grid = go.GetComponent<Grid>();
                 }
             }
-
             return m_grid;
         }
     }
 
     static Transform m_LevelParent;
+
     static Transform LevelParent
     {
         get
@@ -146,7 +145,7 @@ public class LevelEditor : Editor {
 
         int controlId = GUIUtility.GetControlID(FocusType.Passive);      
 
-        if (Event.current.type == EventType.mouseDown &&
+        if (Event.current.type == EventType.MouseDown &&
             Event.current.button == 0 &&
             Event.current.alt == false &&
             Event.current.shift == false &&
@@ -190,13 +189,12 @@ public class LevelEditor : Editor {
                 levelLayoutSO = generator.m_LevelLayoutSO;
             }
             if (SelectedTool == 5)
-            {
-                
+            {              
                 levelLayoutSO = AssetDatabase.LoadAssetAtPath<LevelLayout>("Assets/Resources/Static/new.asset");
             }
-
         }
-        if (Event.current.type == EventType.keyDown &&
+
+        if (Event.current.type == EventType.KeyDown &&
            Event.current.keyCode == KeyCode.Escape)
         {
             SelectedTool = 0;
